@@ -3,6 +3,10 @@
 执行流程：
     1. 加载配置与账号
     2. 引擎：每学生一个 Worker 协程，并发处理
+
+注意：本仓库为架构展示项目，核心引擎模块（browserless.py）未发布。
+      main.py 仅展示入口结构，无法独立运行。
+      详见 README.md 和 blog.md。
 """
 import asyncio
 import os
@@ -26,8 +30,19 @@ CONFIG_PATH = PROJECT_ROOT / "config.yaml"
 
 
 def load_config() -> dict:
-    """加载并校验配置文件。"""
-    with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+    """加载并校验配置文件。
+
+    优先读取 config.yaml，不存在时回退到 config.example.yaml（模板）。
+    """
+    config_path = CONFIG_PATH
+    if not config_path.exists():
+        example_path = PROJECT_ROOT / "config.example.yaml"
+        if example_path.exists():
+            config_path = example_path
+        else:
+            raise FileNotFoundError("config.yaml 和 config.example.yaml 均不存在")
+
+    with open(config_path, "r", encoding="utf-8") as f:
         config = yaml.safe_load(f)
 
     # 校验 gap 参数形状（必须是 2 元素 list）
@@ -43,8 +58,20 @@ def load_config() -> dict:
 
 
 async def run_browserless_engine(config: dict, logger, progress: ProgressTracker, question_bank: QuestionBank) -> None:
-    """Browserless 引擎：纯 HTTP，多学生并发。"""
-    from browserless import run_browserless
+    """引擎：纯 HTTP，多学生并发。
+
+    注意：核心引擎模块（browserless.py）未发布，此函数仅作架构展示。
+    完整流程需补充 browserless.py 和 exam/ 模块后才能运行。
+    """
+    try:
+        from browserless import run_browserless  # type: ignore[import]
+    except ImportError:
+        logger.error("=" * 60)
+        logger.error("核心引擎模块 browserless.py 未发布")
+        logger.error("本仓库仅展示架构设计，无法运行完整流程")
+        logger.error("详见 README.md 和 blog.md")
+        logger.error("=" * 60)
+        return
 
     accounts = read_accounts(config["account_file"])
     if not accounts:
