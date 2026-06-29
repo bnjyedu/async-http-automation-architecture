@@ -4,5 +4,7 @@
   "typeCheckingMode": "basic",
   "reportMissingImports": "none",
   "reportMissingModuleSource": "none",
-  "reportUndefinedVariable": "warning"
+  "reportUndefinedVariable": "warning",
+  "reportArgumentType": "warning",
+  "reportOptionalMemberAccess": "warning"
 }

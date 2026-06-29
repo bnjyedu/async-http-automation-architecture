@@ -17,5 +17,5 @@ class HttpCourse:
     cwareIDCJ: Optional[int]
     cwIDJC: str = ""
     cwIDCJ: str = ""
-    courseIdZikao: str = ""
+    courseIdExt: str = ""
     stagePaper: str = ""

@@ -17,5 +17,5 @@ quiz_gap: [5, 10]               # 每个测验之间的随机间隔秒数
 
 resume: true                    # 断点续学（跳过已完成视频/满分测验）
 
-randcode: "<抓包获取>"          # potalAuthLogin 默认 randcode（需抓包逆向）
-token_salt: "<抓包获取>"        # saveCwareKcjyTime token 盐值（需抓包逆向）
+randcode: "YOUR_RANDCODE"         # 登录接口所需参数(实际值从平台获取)
+token_salt: "YOUR_TOKEN_SALT"     # 提交接口 token 盐值(实际值从平台获取)

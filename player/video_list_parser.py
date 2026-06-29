@@ -1,8 +1,8 @@
-"""视频列表 HTML 解析（共享）。
+"""视频列表 HTML 解析(共享模块)。
 
-匹配 getVideoList.shtm 响应中的 <a> 节点，提取 videoID / title / duration / status。
+解析视频列表接口响应中的 a 节点, 提取 videoID / title / duration / status。
 
-正则容忍属性顺序变化，与原 browserless.py 实现一致。
+正则容忍属性顺序变化, 与原引擎实现保持一致。
 """
 import re
 from dataclasses import dataclass

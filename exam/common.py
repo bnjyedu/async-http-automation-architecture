@@ -9,7 +9,7 @@ import re
 from typing import Any, Dict
 
 
-# ─── textarea 正则（getQues4NoCache / exam_createPaper 响应共用） ────
+# ─── textarea 正则(题目获取 / 试卷创建响应共用) ────
 
 ANSWER_TEXTAREA_PATTERN = re.compile(
     r'<textarea[^>]*name="userAnsMapStr"[^>]*>(.*?)</textarea>', re.S,
