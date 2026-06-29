@@ -1,11 +1,12 @@
-"""平台共享常量（URL/域名/盐值）- 脱敏示例版。
-实际使用时：
-1. 复制本文件为 constants.py
-2. 将 example.com 替换为实际平台域名
+# 平台共享常量 - 脱敏示例版
+#
+# 实际使用时：
+#   1. 复制本文件为 constants.py
+#   2. 将 example.com 替换为实际平台域名
+#   3. 将 TOKEN_SALT 占位符替换为实际盐值, 或从 config.yaml 注入
+#
+# 集中管理 URL/域名/盐值, 避免多文件重复定义。
 
-3. 将 TOKEN_SALT 占位符替换为实际盐值（或从 config.yaml 注入）
-集中管理以避免多个文件之间的重复定义。
-"""
 # 域名（示例值，实际使用时替换）
 GCKH_BASE = "https://gckh.example.com"
 MEMBER_BASE = "https://member.example.com"
@@ -19,7 +20,7 @@ LOGIN_PAGE = f"{GCKH_BASE}/uc/login/toLogin"
 VIDEO_PLAY_URL = f"{XUEXI_BASE}/xcware/video/videoPlay/videoPlayhls.shtm"
 VIDEO_LIST_API = f"{XUEXI_BASE}/xcware/video/videoPlay/getVideoList.shtm"
 SUBMIT_URL = f"{XUEXI_BASE}/xcware/video/videoPlay/service/saveCwareKcjyTime.shtm"
-TOKEN_SALT = "<从配置读取>"  # 实际盐值从 config.yaml 注入，不入库
+TOKEN_SALT = "TOKEN_SALT_PLACEHOLDER"  # 实际盐值从 config.yaml 注入，不入库
 
 # 阶段测验
 STAGE_EXAM_ENTRY = f"{MEMBER_BASE}/qzgckh/index/indexForGckhJk.shtm"
