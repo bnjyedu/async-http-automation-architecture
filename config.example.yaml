@@ -1,0 +1,21 @@
+# 自动化系统配置文件模板
+#
+# 实际使用时：
+# 1. 复制本文件为 config.yaml
+# 2. 填入实际的 account_file 路径和敏感值
+
+account_file: ./students.xlsx   # 学生账号 xlsx 路径
+data_dir: ./data                # 运行数据目录（进度/题库/日志）
+
+concurrency: 1                  # 并发学生数（同一账号多科目建议 1，避免风控）
+
+submit_delay: 8                 # 播放页加载后等待秒数（满足服务端 openTime 校验）
+submit_gap: [3, 6]              # 每讲视频提交后随机间隔秒数
+
+do_quizzes: true                # 是否自动执行测验
+quiz_gap: [5, 10]               # 每个测验之间的随机间隔秒数
+
+resume: true                    # 断点续学（跳过已完成视频/满分测验）
+
+randcode: "<抓包获取>"          # potalAuthLogin 默认 randcode（需抓包逆向）
+token_salt: "<抓包获取>"        # saveCwareKcjyTime token 盐值（需抓包逆向）
